@@ -1,0 +1,145 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "format:{customer}-{email}",
+  "creation": "2023-02-15 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "customer_details_tab",
+    "customer",
+    "email",
+    "stripe_account",
+    "auto_process",
+    "process_delay",
+    "get_stripe_id",
+    "stripe_id",
+    "tab_cards",
+    "cards_list",
+    "check_cards",
+    "card_idx",
+    "delete_card",
+    "add_new_credit_card",
+    "card_token",
+    "open_new_card_url",
+    "get_new_card_token"
+  ],
+  "fields": [
+    {
+      "fieldname": "customer_details_tab",
+      "fieldtype": "Tab Break",
+      "label": "Customer Details"
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "label": "Customer",
+      "options": "Customer"
+    },
+    {
+      "fieldname": "stripe_account",
+      "fieldtype": "Link",
+      "label": "Stripe Account",
+      "options": "Stripe Settings"
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email"
+    },
+    {
+      "fieldname": "auto_process",
+      "fieldtype": "Check",
+      "label": "Auto Process Invoices"
+    },
+    {
+      "fieldname": "process_delay",
+      "fieldtype": "Int",
+      "label": "Process Delay (Hours)",
+      "depends_on": "eval:doc.auto_process",
+      "default": 0
+    },
+    {
+      "fieldname": "get_stripe_id",
+      "fieldtype": "Button",
+      "label": "Get Stripe ID"
+    },
+    {
+      "fieldname": "stripe_id",
+      "fieldtype": "Data",
+      "label": "Stripe ID"
+    },
+    {
+      "fieldname": "tab_cards",
+      "fieldtype": "Tab Break",
+      "label": "Cards"
+    },
+    {
+      "fieldname": "cards_list",
+      "fieldtype": "Table",
+      "label": "Cards List",
+      "options": "Stripe Card"
+    },
+    {
+      "fieldname": "check_cards",
+      "fieldtype": "Button",
+      "label": "Check Cards"
+    },
+    {
+      "fieldname": "card_idx",
+      "fieldtype": "Int",
+      "label": "Card Index"
+    },
+    {
+      "fieldname": "delete_card",
+      "fieldtype": "Button",
+      "label": "Delete Card"
+    },
+    {
+      "fieldname": "add_new_credit_card",
+      "fieldtype": "Tab Break",
+      "label": "Add New Credit Card"
+    },
+    {
+      "fieldname": "card_token",
+      "fieldtype": "Data",
+      "label": "Card Token"
+    },
+    {
+      "fieldname": "open_new_card_url",
+      "fieldtype": "Button",
+      "label": "Open New Card Url",
+      "depends_on": "eval:doc.card_token"
+    },
+    {
+      "fieldname": "get_new_card_token",
+      "fieldtype": "Button",
+      "label": "Get New Card token",
+      "depends_on": "eval:!doc.card_token"
+    }
+  ],
+  "links": [],
+  "modified": "2020-11-09 19:48:21.690285",
+  "modified_by": "Administrator",
+  "module": "IPCONNEX Stripe Payment",
+  "name": "Stripe Customer",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "quick_entry": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

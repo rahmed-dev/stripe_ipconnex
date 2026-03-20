@@ -1,0 +1,108 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "field:gateway_name",
+  "creation": "2023-02-14 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "gateway_name",
+    "publishable_key",
+    "column_break_3",
+    "secret_key",
+    "pay_to",
+    "section_break_5",
+    "email_sending_account",
+    "email_template",
+    "section_break_7",
+    "is_default"
+  ],
+  "fields": [
+    {
+      "fieldname": "gateway_name",
+      "fieldtype": "Data",
+      "label": "Payment Gateway Name",
+      "unique": 1,
+      "Mandatory": "Checked"
+    },
+    {
+      "fieldname": "publishable_key",
+      "fieldtype": "Data",
+      "label": "Publishable Key",
+      "Mandatory": "Checked"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break",
+      "label": ""
+    },
+    {
+      "fieldname": "secret_key",
+      "fieldtype": "Data",
+      "label": "Secret Key",
+      "Mandatory": "Checked"
+    },
+    {
+      "fieldname": "pay_to",
+      "fieldtype": "Link",
+      "label": "Pay to",
+      "Mandatory": "Checked",
+      "options": "Account"
+    },
+    {
+      "fieldname": "section_break_5",
+      "fieldtype": "Section Break",
+      "label": ""
+    },
+    {
+      "fieldname": "email_sending_account",
+      "fieldtype": "Link",
+      "label": "Email Sending Account",
+      "options": "Email Account"
+    },
+    {
+      "fieldname": "section_break_7",
+      "fieldtype": "Section Break",
+      "label": ""
+    },
+    {
+      "fieldname": "email_template",
+      "fieldtype": "Link",
+      "label": "Email Template",
+      "options": "Email Template",
+      "default": "Stripe Notification IPCONNEX Default template"
+    },
+    {
+      "fieldname": "is_default",
+      "fieldtype": "Check",
+      "label": "Default"
+    }
+  ],
+  "links": [],
+  "modified": "2020-11-09 19:48:21.690285",
+  "modified_by": "Administrator",
+  "module": "IPCONNEX Stripe Payment",
+  "name": "Stripe Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "list_view": {
+    "fields": ["gateway_name", "pay_to", "is_default"]
+  },
+  "quick_entry": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

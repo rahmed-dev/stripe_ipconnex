@@ -1,0 +1,90 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "format:{user_id}",
+  "creation": "2023-02-15 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "user_id",
+    "stripe_customer",
+    "auto_subscription",
+    "auto_subscription_type",
+    "expiration_date",
+    "status",
+    "subscribe",
+    "subscription_list"
+  ],
+  "fields": [
+    {
+      "fieldname": "user_id",
+      "fieldtype": "Link",
+      "label": "User",
+      "options": "User"
+    },
+    {
+      "fieldname": "stripe_customer",
+      "fieldtype": "Link",
+      "label": "Stripe Customer",
+      "options": "Stripe Customer"
+    },
+    {
+      "fieldname": "auto_subscription",
+      "fieldtype": "Check",
+      "label": "Auto Subscription"
+    },
+    {
+      "fieldname": "auto_subscription_type",
+      "fieldtype": "Link",
+      "label": "Auto Subscription Type",
+      "options": "Subscription Type"
+    },
+    {
+      "fieldname": "expiration_date",
+      "fieldtype": "Date",
+      "label": "Expiration date"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Guest\nSubscribed",
+      "default": "Guest"
+    },
+    {
+      "fieldname": "subscribe",
+      "fieldtype": "Button",
+      "label": "Subscribe"
+    },
+    {
+      "fieldname": "subscription_list",
+      "fieldtype": "Table",
+      "label": "Subscriptions",
+      "options": "Subscription Item"
+    }
+  ],
+  "links": [],
+  "modified": "2023-02-15 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "IPCONNEX Stripe Payment",
+  "name": "User Subscription",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "quick_entry": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}
