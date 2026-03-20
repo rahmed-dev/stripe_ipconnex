@@ -12,6 +12,9 @@ dependencies = [
     "stripe~=5.2.0",
 ]
 
+[tool.flit.module]
+name = "ipconnex_stripe_payment"
+
 [build-system]
 requires = ["flit_core >=3.4,<4"]
 build-backend = "flit_core.buildapi"
