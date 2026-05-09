@@ -21,22 +21,24 @@ doctype_js = {
 
 # Scheduled Tasks
 # ---------------
+# Auto-charge crons disabled — dido_erp owns Stripe charging via the
+# daily 06:00 sweep at dido_erp.dido_payment.stripe_charge.sweep.
+# scheduler_events = {
+#     "hourly": [
+#         "ipconnex_stripe_payment.ipconnex_stripe_payment.payement.hourly_process_payment",
+#         "ipconnex_stripe_payment.ipconnex_stripe_payment.payement.daily_auto_subscription",
+#     ]
+# }
 
-scheduler_events = {
-    "hourly": [
-        "ipconnex_stripe_payment.ipconnex_stripe_payment.payement.hourly_process_payment",
-        "ipconnex_stripe_payment.ipconnex_stripe_payment.payement.daily_auto_subscription",
-    ]
-}
-
-doc_events = {
-    "Sales Invoice": {
-        "on_submit": "ipconnex_stripe_payment.ipconnex_stripe_payment.payement.checkProcessInvoice"
-    },    
-    "Sales Order": {
-        "on_submit": "ipconnex_stripe_payment.ipconnex_stripe_payment.payement.checkProcessInvoice"
-    }
-}
+# Auto-charge doc_events disabled — see scheduler_events note above.
+# doc_events = {
+#     "Sales Invoice": {
+#         "on_submit": "ipconnex_stripe_payment.ipconnex_stripe_payment.payement.checkProcessInvoice"
+#     },
+#     "Sales Order": {
+#         "on_submit": "ipconnex_stripe_payment.ipconnex_stripe_payment.payement.checkProcessInvoice"
+#     }
+# }
 
 app_install = "ipconnex_stripe_payment.ipconnex_stripe_payment.payement.setup_install"
 

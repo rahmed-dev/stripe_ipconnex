@@ -510,11 +510,11 @@ def deleteCard(client_name,card_id,card_idx):
 
 
 def checkProcessInvoice(doc, method):
-    if doc.status not in ["Partly Paid", "Unpaid", "Overdue"] :
-        return 
-    doc_status=frappe.db.get_value(doc.doctype,doc.name,"status")
-    if doc_status not in ["Partly Paid", "Unpaid", "Overdue"] :
-        return 
+    # dido_erp owns Stripe auto-charge end-to-end. The daily 06:00 sweep
+    # at dido_erp.dido_payment.stripe_charge.sweep.charge_today_stripe_cohort
+    # honors per-customer charge_day. ipconnex's on_submit auto-charge is
+    # disabled so SI submission no longer races against the sweep.
+    return
     try:
         stripe_customers= frappe.db.get_all("Stripe Customer",fields=["name","auto_process","process_delay","stripe_account"],filters={"customer":doc.customer},order_by='modified desc', limit_page_length=0)
         filters={}
@@ -654,6 +654,9 @@ def checkProcessInvoice(doc, method):
 
 @frappe.whitelist()
 def hourly_process_payment():
+    # Disabled: dido_erp owns Stripe auto-charge via the daily 06:00
+    # cohort sweep. See dido_erp.dido_payment.stripe_charge.sweep.
+    return
     current_time = frappe.utils.now_datetime()
     stripe_customers=frappe.db.get_all("Stripe Customer",fields=["customer","process_delay"],filters={"auto_process":1},order_by='modified desc', limit_page_length=0)
     for sc in stripe_customers:
@@ -845,8 +848,13 @@ def process_subscription(user_sub,sub_type):
 
 
 @frappe.whitelist()
-def daily_auto_subscription():     
-    posting_date= frappe.utils.nowdate()        
+def daily_auto_subscription():
+    # Disabled: dido_erp does not use ipconnex's User Subscription path
+    # for billing. Recurring SI generation lives in
+    # dido_erp.dido_subscription.scheduled.monthly_billing and charging
+    # is owned by the daily Stripe sweep.
+    return
+    posting_date= frappe.utils.nowdate()
     tomorrow=frappe.utils.add_days(posting_date,1)
     user_subsciptions=frappe.db.get_all("User Subscription",fields=["name","auto_subscription_type"],filters={ "auto_subscription":1, "auto_subscription_type":["is","set"],"expiration_date":[ "<=",tomorrow ]  },order_by='modified desc', limit_page_length=0)
     for user_sub in user_subsciptions:
