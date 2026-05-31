@@ -422,7 +422,7 @@ def get_cards_by_email(api_key, account_name, customer_email):
                     msg=f"Failed to cancel SetupIntent {setup_intent['id']}: {e.user_message}"
     return cards
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def updateCards(client_token):
     try:
         stripe_customers=frappe.db.get_all("Stripe Customer",
