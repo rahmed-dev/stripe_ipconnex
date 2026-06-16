@@ -1,0 +1,4 @@
+[pre_model_sync]
+
+[post_model_sync]
+ipconnex_stripe_payment.ipconnex_stripe_payment.patches.encrypt_stripe_secret_key

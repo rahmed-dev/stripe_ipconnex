@@ -39,7 +39,7 @@
     },
     {
       "fieldname": "secret_key",
-      "fieldtype": "Data",
+      "fieldtype": "Password",
       "label": "Secret Key",
       "Mandatory": "Checked"
     },
