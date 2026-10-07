@@ -1,0 +1,23 @@
+{
+ "app": "ipconnex_stripe_payment",
+ "creation": "2026-10-07 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Dock",
+ "idx": 0,
+ "items": [
+  {
+   "added": 0,
+   "hidden": 0,
+   "icon": "credit-card",
+   "link_to": "IPCONNEX Stripe Payment",
+   "link_type": "Sidebar",
+   "title": "IPCONNEX Stripe Payment"
+  }
+ ],
+ "modified": "2026-10-07 18:30:00.000000",
+ "modified_by": "Administrator",
+ "name": "ipconnex_stripe_payment",
+ "owner": "Administrator",
+ "standard": 1,
+ "user": ""
+}
