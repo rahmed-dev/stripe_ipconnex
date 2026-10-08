@@ -10,16 +10,6 @@ app_color = "grey"
 app_email = "voip@ipconnex.com"
 app_license = "MIT"
 
-# Apps screen tile
-add_to_apps_screen = [
-	{
-		"name": app_name,
-		"title": app_title,
-		"route": "/desk/ipconnex-stripe-payment/stripe-customer",
-	}
-]
-
-
 # include js in doctype views
 doctype_js = {
 	"Sales Invoice" : "public/js/payement.js",
